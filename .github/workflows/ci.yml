@@ -4,7 +4,7 @@ on:
   - push
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Install qemu-utils
@@ -18,8 +18,6 @@ jobs:
           sudo ./alpine-make-vm-image \
               --image-format raw \
               --image-size 512M \
-              --repositories-file example/repositories \
-              --packages "$(cat example/packages)" \
               --script-chroot \
               alpine.img -- ./prepareISO.sh
           curl --upload-file ./alpine.img https://transfer.sh
