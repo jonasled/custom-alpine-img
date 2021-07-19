@@ -21,7 +21,6 @@ jobs:
               --repositories-file repositories \
               --packages "$(cat packages)" \
               --script-chroot \
-              --kernel-flavor lts \
               alpine.img -- ./prepareISO.sh
       - name: Upload Image
         run: |
