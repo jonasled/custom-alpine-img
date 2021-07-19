@@ -15,7 +15,7 @@ rc-update add networking boot
 echo "Setting timezone up"
 export TZ='Europe/Berlin' 
 echo "export TZ='$TZ'" >> /etc/profile.d/timezone.sh
-setup-timezone $TZ
+install -Dm 0644 /usr/share/zoneinfo/$TZ /etc/zoneinfo/$TZ
 
 echo "Setting up welcome message"
 echo "" > /etc/motd
