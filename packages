@@ -5,4 +5,4 @@ wget
 curl
 python3
 nano
-setxkbmap
+kbd-bkeymaps
