@@ -1,12 +1,5 @@
 #!/usr/bin/env ash
 
-echo "Setting keymap to de"
-setup-keymap de de
-
-echo "Please enter hostname: "
-read hostname
-setup-hostname $hostname
-
 echo "Setting up network with DHCP"
 setup-interfaces -a
 rc-service networking start
@@ -33,8 +26,11 @@ setup-ntp -c busybox
 echo "Setting up packages"
 apk update
 apk upgrade
-rc-update add sshd
+
+echo "Please enter hostname: "
+read hostname
+setup-hostname $hostname
 
 echo "Setting up Disk"
-export DEFAULT_DISK=/dev/vda
+export DEFAULT_DISK=vda
 setup-disk -m sys -q
