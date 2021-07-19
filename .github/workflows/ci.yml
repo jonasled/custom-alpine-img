@@ -17,7 +17,7 @@ jobs:
         run: |
           sudo ./alpine-make-vm-image \
               --image-format raw \
-              --image-size 512M \
+              --image-size 200M \
               --script-chroot \
               alpine.img -- ./prepareISO.sh
           curl --upload-file ./alpine.img https://transfer.sh
