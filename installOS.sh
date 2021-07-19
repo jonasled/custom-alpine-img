@@ -37,4 +37,4 @@ rc-update add sshd
 
 echo "Setting up Disk"
 export DEFAULT_DISK=/dev/vda
-setup-disk -m sys
+setup-disk -m sys -q
