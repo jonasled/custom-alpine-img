@@ -10,7 +10,7 @@ jobs:
       - name: Install qemu-utils
         run: |
           sudo apt-get update
-          sudo apt-get install qemu-utils
+          sudo apt-get install qemu-utils ccd2iso
       - uses: actions/checkout@v2
 
       - name: Build image
@@ -22,6 +22,9 @@ jobs:
               --packages "$(cat packages)" \
               --script-chroot \
               alpine.img -- ./prepareISO.sh
-      - name: Upload Image
+      - name: Generate ISO
         run: |
-          curl --upload-file ./alpine.img https://transfer.sh
+          ccd2iso alpine.img alpine.iso
+      - name: Upload ISO
+        run: |
+          curl --upload-file ./alpine.iso https://transfer.sh
