@@ -128,6 +128,7 @@ help() {
 
 # Cleans the host system. This function is executed before exiting the script.
 cleanup() {
+	sleep 10
 	set +eu
 	trap '' EXIT HUP INT TERM  # unset trap to avoid loop
 
