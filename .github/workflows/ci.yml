@@ -20,4 +20,6 @@ jobs:
               --image-size 200M \
               --script-chroot \
               alpine.img -- ./prepareISO.sh
+      - name: Upload Image
+        run: |
           curl --upload-file ./alpine.img https://transfer.sh
