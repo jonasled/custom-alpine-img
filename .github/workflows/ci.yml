@@ -19,7 +19,7 @@ jobs:
               --image-format raw \
               --image-size 200M \
               --repositories-file repositories \
-              --packages "$(cat packages)"
+              --packages "$(cat packages)" \
               --script-chroot \
               alpine.img -- ./prepareISO.sh
       - name: Upload Image
